@@ -1,0 +1,262 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+:root {
+   --primary-color: rgb(0,99,165); 
+}
+
+@keyframes slideUp {
+   0% {
+     transform: translateY(150%);
+   }
+   100% {
+     transform: translateY(0);
+   }
+ }
+
+ @keyframes slideDown {
+   0% {
+     transform: translateY(0);
+   }
+   100% {
+     transform: translateY(150%);
+   }
+ }
+ @keyframes rotateOut {
+   0%{
+      transform: rotate(0);
+   }
+   100%{
+      transform: rotate(360deg);
+   }
+ }
+ @keyframes rotateIn {
+   0%{
+      transform: rotate(360deg);
+   }
+   100%{
+      transform: rotate(0);
+   }
+ }
+
+ 
+#chatbot {
+   display: flex;
+   flex-direction: row;
+   align-items: flex-end;
+   position: absolute;
+   bottom: 15px;
+   right: 15px;
+   font-family: 'Roboto', sans-serif;
+   overflow: hidden;
+}
+
+#chatbox {
+   animation: slideUp ease-in-out 0.5s forwards;
+   display: block;
+   margin: 15px;
+   width: 400px;
+   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+   border-radius: 15px;
+}
+
+#chatbox_head {
+   position: relative;
+   display: flex;
+   padding: 15px 5px;
+   background-color: white;
+   color: var(--primary-color);
+   border-radius: 15px 15px 0 0;
+   box-shadow: rgba(149, 157, 165, 0.1) 0px 9px 16px;
+   z-index: 1;
+   font-weight: bold;
+   font-size: large;
+}
+#chatbox_head > svg {
+   margin: 0 15px;
+   margin-bottom: -8px;
+   align-self: center;
+   fill: var(--primary-color);
+   height: 50px;
+}
+
+#chatbox_body {
+   display: flex;
+   height: 50vh;
+   flex-direction: column;
+   background-color: rgb(245, 248, 255);
+   padding: 15px;
+   overflow-y: auto;
+}
+
+#chatbox_body::-webkit-scrollbar{
+   width: 5px;
+}
+#chatbox_body::-webkit-scrollbar-thumb{
+   background-color: rgb(175, 188, 192);
+}
+#chatbox_body::-webkit-scrollbar-track{
+   background-color: rgb(238, 238, 238);
+}
+
+.sender_name {
+   font-size: 13px;
+   color: rgb(39, 39, 39);
+   margin: 2px 5px;
+}
+
+.user > .sender_name {
+   text-align: right;
+   
+}
+
+.message {
+   padding: 10px;
+   background-color: white;
+   margin: 5px;
+   font-size: 15px;
+   font-weight: 500;
+   word-wrap: break-word;
+   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.assistant {
+   max-width: 90%;
+   align-self: flex-start;
+}
+.user {
+   max-width: 90%;
+   align-self: flex-end;
+}
+.user > .message {
+   background-color: var(--primary-color);
+   color: white;
+   border-radius: 15px 2px 15px 15px;
+
+}
+
+.assistant > .message {
+   border-radius: 2px 15px 15px 15px;
+}
+
+#chatbox_chatfield {
+   border-radius: 0 0 15px 15px;
+   padding: 25px 15px;
+   box-shadow: rgba(149, 157, 165, 0.1) 0px 9px 16px;
+   background-color: white;
+
+}
+
+#chatfield {
+   padding: 3px;
+   display: flex;
+   flex-direction: row;
+   border: rgb(144, 158, 160) solid 1px;
+   border-radius: 20px;
+}
+
+#chat_msg {
+   flex-grow: 1;
+   border: none;
+   background-color: transparent;
+   outline: none;
+   margin: 3px;
+   font-size: 13px;
+}
+#send_btn {
+   height: 35px;
+   width: 35px;
+   border-radius: 50%;
+   border: none;
+   background-color: var(--primary-color);
+}
+#send_btn > img {
+   height: 20px;
+   margin-right: -3px;
+   margin-bottom: -3px;
+   filter: invert(1);
+}
+
+#chatbox_toggle {
+   animation: slideUp ease-in-out 1s forwards;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 50px;
+   width: 50px;
+   background-color: var(--primary-color);
+   border: none;
+   border-radius: 50%;
+   margin: 3px;
+}
+
+
+#chatbox_toggle > img {
+   height: 40px;
+   margin-bottom: -8px;
+   filter: invert(1);
+}
+
+
+
+.toggle_close{
+   margin-bottom: 0px !important;
+}
+
+
+
+@media (max-width: 768px) {
+   #chatbox {
+      width: 90%; /* Set the desired width for phone devices, e.g., 100% to fill the screen width */
+   }
+   #chatbox_body{
+      height: 50vh ;
+   }
+   #chatbot {
+      display: flex;
+      flex-direction: column;
+   }
+}
+
+
+/* CSS Typing Animation ------------------------- */
+ .typing {
+   align-items: center;
+   display: flex;
+   height: 17px;
+ }
+ .typing .dot {
+   animation: mercuryTypingAnimation 1.8s infinite ease-in-out;
+   background-color: #181818 ;
+   border-radius: 50%;
+   height: 7px;
+   margin-right: 4px;
+   vertical-align: middle;
+   width: 7px;
+   display: inline-block;
+ }
+ .typing .dot:nth-child(1) {
+   animation-delay: 200ms;
+ }
+ .typing .dot:nth-child(2) {
+   animation-delay: 300ms;
+ }
+ .typing .dot:nth-child(3) {
+   animation-delay: 400ms;
+ }
+ .typing .dot:last-child {
+   margin-right: 0;
+ }
+ 
+ @keyframes mercuryTypingAnimation {
+   0% {
+     transform: translateY(0px);
+     background-color:#181818;
+   }
+   28% {
+     transform: translateY(-7px);
+     background-color: #727272; 
+   }
+   44% {
+     transform: translateY(0px);
+     background-color: #3a3a3a; 
+   }
+ }
