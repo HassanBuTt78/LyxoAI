@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta http-equiv="Content-Security-Policy" content="frame-ancestors 'self' file://*;">
+      <title>{{ data['bot_name' ]}}</title>
+      <style>        
+         @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap");
+         :root {
+            --primary-color: {{data['widget']['style']['primary_color']}};
+            --background-color: {{data['widget']['style']['background_color']}};
+         }
+
+         @keyframes slideUp {
+            0% {
+               transform: translateY(150%);
+            }
+            100% {
+               transform: translateY(0);
+            }
+         }
+
+         @keyframes slideDown {
+            0% {
+               transform: translateY(0);
+            }
+            100% {
+               transform: translateY(150%);
+            }
+         }
+         @keyframes rotateOut {
+            0% {
+               transform: rotate(0);
+            }
+            100% {
+               transform: rotate(360deg);
+            }
+         }
+         @keyframes rotateIn {
+            0% {
+               transform: rotate(360deg);
+            }
+            100% {
+               transform: rotate(0);
+            }
+         }
+
+         #chatbot {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-end;
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            font-family: "Roboto", sans-serif;
+            overflow: hidden;
+         }
+
+         #chatbox {
+            animation: slideUp ease-in-out 0.5s forwards;
+            display: block;
+            margin: 15px;
+            width: 350px;
+            max-width: 350px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+            border-radius: 15px;
+         }
+
+         #chatbox_head {
+            position: relative;
+            display: flex;
+            padding: 15px 5px;
+            background-color: white;
+            color: var(--primary-color);
+            border-radius: 15px 15px 0 0;
+            box-shadow: rgba(149, 157, 165, 0.1) 0px 9px 16px;
+            z-index: 1;
+            font-weight: bold;
+            font-size: large;
+         }
+         #chatbox_head > #chatbox_thumbnail {
+   margin: 0 15px;
+   height: 60px;
+   width: 60px;
+   border-radius: 100%;
+   align-self: center;
+}
+#chatbox_thumbnail > img {
+   height: inherit;
+   align-self: center;
+   border-radius: 100%;
+}
+         #chatbox_body {
+            display: flex;
+            height: 40vh;
+            flex-direction: column;
+            background-color: var(--background-color);
+            padding: 15px;
+            overflow-y: auto;
+         }
+
+         #chatbox_body::-webkit-scrollbar {
+            width: 5px;
+         }
+         #chatbox_body::-webkit-scrollbar-thumb {
+            background-color: rgb(175, 188, 192);
+         }
+         #chatbox_body::-webkit-scrollbar-track {
+            background-color: rgb(238, 238, 238);
+         }
+
+         .sender_name {
+            font-size: 13px;
+            color: rgb(39, 39, 39);
+            margin: 2px 5px;
+         }
+
+         .user > .sender_name {
+            text-align: right;
+         }
+
+         .message {
+            padding: 10px;
+            background-color: white;
+            margin: 5px;
+            font-size: 15px;
+            font-weight: 500;
+            word-wrap: break-word;
+            box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+         }
+
+         .assistant {
+            max-width: 90%;
+            align-self: flex-start;
+         }
+         .user {
+            max-width: 90%;
+            align-self: flex-end;
+         }
+         .user > .message {
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 15px 2px 15px 15px;
+         }
+
+         .assistant > .message {
+            border-radius: 2px 15px 15px 15px;
+         }
+
+         #chatbox_chatfield {
+            border-radius: 0 0 15px 15px;
+            padding: 25px 15px;
+            box-shadow: rgba(149, 157, 165, 0.1) 0px 9px 16px;
+            background-color: white;
+         }
+
+         #chatfield {
+            padding: 3px;
+            display: flex;
+            flex-direction: row;
+            border: rgb(144, 158, 160) solid 1px;
+            border-radius: 20px;
+         }
+
+         #chat_msg {
+            flex-grow: 1;
+            border: none;
+            background-color: transparent;
+            outline: none;
+            margin: 3px;
+            font-size: 13px;
+         }
+         #send_btn {
+            height: 35px;
+            width: 35px;
+            border-radius: 50%;
+            border: none;
+            background-color: var(--primary-color);
+         }
+         #send_btn > img {
+            height: 20px;
+            margin-right: -3px;
+            margin-bottom: -3px;
+            filter: invert(1);
+         }
+
+         #chatbox_toggle {
+            animation: slideUp ease-in-out 1s forwards;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50px;
+            width: 50px;
+            background-color: var(--primary-color);
+            border: none;
+            border-radius: 50%;
+            margin: 3px;
+         }
+
+         #chatbox_toggle > img {
+            height: 40px;
+            margin-bottom: -8px;
+            filter: invert(1);
+         }
+
+         .toggle_close {
+            margin-bottom: 0px !important;
+         }
+
+         @media (max-width: 499px) {
+            #chatbox {
+               width: 85vw; /* Set the desired width for phone devices, e.g., 100% to fill the screen width */
+            }
+            #chatbox_body {
+               height: 50vh;
+            }
+            #chatbot {
+               display: flex;
+               flex-direction: column;
+            }
+         }
+
+         /* CSS Typing Animation ------------------------- */
+         .typing {
+            align-items: center;
+            display: flex;
+            height: 17px;
+         }
+         .typing .dot {
+            animation: mercuryTypingAnimation 1.8s infinite ease-in-out;
+            background-color: #181818;
+            border-radius: 50%;
+            height: 7px;
+            margin-right: 4px;
+            vertical-align: middle;
+            width: 7px;
+            display: inline-block;
+         }
+         .typing .dot:nth-child(1) {
+            animation-delay: 200ms;
+         }
+         .typing .dot:nth-child(2) {
+            animation-delay: 300ms;
+         }
+         .typing .dot:nth-child(3) {
+            animation-delay: 400ms;
+         }
+         .typing .dot:last-child {
+            margin-right: 0;
+         }
+
+         @keyframes mercuryTypingAnimation {
+            0% {
+               transform: translateY(0px);
+               background-color: #181818;
+            }
+            28% {
+               transform: translateY(-7px);
+               background-color: #727272;
+            }
+            44% {
+               transform: translateY(0px);
+               background-color: #3a3a3a;
+            }
+         }
+      </style>
+   </head>
+   <body>
+    <div id="chatbot">
+        <div id="chatbox" style="display: none">
+           <div id="chatbox_head">
+              <div id="chatbox_thumbnail">
+                 <img src="{{ data['widget']['pfp'] }}" alt="PFP">
+              </div>
+              <h3>{{ data['bot_name' ]}}</h3>
+           </div>
+           <div>
+           </div>
+           <div id="chatbox_body">
+              <div class="assistant chat">
+                 <p class="sender_name">AI Assistant</p>
+                 <p class="message">
+                    Hey! How can I help you today?
+                 </p>
+              </div>
+              <!-- <div class="user chat">
+                 <p class="sender_name">You</p>
+                 <p class="message">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci
+                    natus itaque vitae. Eligendi, voluptatum cupiditate modi veniam
+                    recusandae minima quis.
+                 </p>
+              </div> -->
+           </div>
+     
+           <div id="chatbox_chatfield">
+              <form id="chatfield" onsubmit="return false;" autocomplete="off">
+                 <input
+                    type="text"
+                    id="chat_msg"
+                    placeholder="Type your Message Here..."
+                 />
+                 <button id="send_btn" type="submit">
+                    <img
+                       src="https://cdn4.iconfinder.com/data/icons/glyphs/24/icons_send-512.png"
+                       alt=""
+                    />
+                 </button>
+              </form>
+           </div>
+        </div>
+     
+        <button id="chatbox_toggle">
+           <img
+              src="http://127.0.0.1:5000/chatbox/assets/chat.svg"
+              alt=""
+              class="toggle_open"
+              style="display: block"
+           />
+           <img
+              class="toggle_close"
+              style="display: none"
+              src="https://cdn0.iconfinder.com/data/icons/user-interface-2063/24/UI_Essential_icon_expanded-02-512.png"
+              alt=""
+           />
+        </button>
+     </div>
+   <script>
+      (function () {
+   const toggleButton = document.getElementById("chatbox_toggle");
+   const sendButton = document.getElementById("send_btn");
+   const chatField = document.getElementById("chat_msg");
+   const chatBoxBody = document.getElementById("chatbox_body");
+   const chatBox = document.getElementById("chatbox");
+   const typeLoading = document.getElementById("typing");
+   let chat_id;
+   if (getCookie("chatSessionId")) {
+      chat_id = getCookie("chatSessionId");
+   } else {
+      chat_id = "";
+   }
+
+   let inTrasition = false;
+   let isTyping = false;
+   const toggleChatBox = () => {
+      if (inTrasition) return;
+      inTrasition = true;
+      const toggleClose = document.querySelectorAll(".toggle_close")[0];
+      const toggleOpen = document.querySelectorAll(".toggle_open")[0];
+
+      if (toggleOpen.style.display === "block") {
+         toggleButton.style.animation = "rotateOut 0.5s ease-in-out forwards";
+         chatBox.style.animation = "slideUp 0.5s ease-in-out forwards";
+         setTimeout(() => {
+            toggleOpen.style.display = "none";
+            toggleClose.style.display = "block";
+         }, 250);
+         chatBox.style.display = "block";
+         setTimeout(() => {
+            inTrasition = false;
+         }, 500);
+      } else {
+         toggleButton.style.animation = "rotateIn 0.5s ease-in-out forwards";
+         setTimeout(() => {
+            toggleOpen.style.display = "block";
+            toggleClose.style.display = "none";
+         }, 250);
+         chatBox.style.animation = "slideDown 0.5s ease-in-out forwards";
+         setTimeout(() => {
+            chatBox.style.display = "none";
+            inTrasition = false;
+         }, 500);
+      }
+   };
+
+   const sendMessage = async () => {
+      if (chatField.value.trim().length < 1) return;
+      if (isTyping) return;
+      isTyping = true;
+      const message = chatField.value;
+      chatField.value = "";
+      renderSentMessage(message);
+      setTimeout(toggleTyping, 300);
+      reply = await getReply(message);
+      toggleTyping();
+      setTimeout(()=>{
+         renderReply(reply)
+         isTyping = false
+      }, 300);
+   };
+   const api_key = "{{ data['api_key']}}"
+   const getReply = async (message) => {
+      try {
+         let body;
+         if (chat_id == "" || chat_id == undefined || chat_id == null) {
+            requestBody = { message };
+         } else {
+            requestBody = { message: message, chatSessionId: chat_id };
+         }
+
+         const response = await fetch("http://localhost:5000/chat", {
+            method: "POST",
+            headers: {
+               "Content-Type": "application/json", // Set the appropriate content type
+               authorization:
+                  `bearer ${api_key}`,
+            },
+            body: JSON.stringify(requestBody), // Send your message as JSON data
+         });
+
+         if (!response.ok) {
+            throw new Error(
+               `Server returned ${response.status} ${response.statusText}`
+            );
+         }
+
+         const replyJson = await response.json();
+         chat_id = replyJson.chatSessionId;
+         setCookie("chatSessionId", chat_id, 30);
+         return replyJson.reply;
+      } catch (error) {
+         isTyping = false
+         console.error("Error fetching the reply:", error);
+         return "An error occurred"; // Handle the error as needed
+      }
+   };
+
+   const toggleTyping = () => {
+      const typeLoading = document.getElementById("typing");
+      if (!typeLoading) {
+         chatBoxBody.innerHTML += `         <div class="assistant chat" id="typing">
+      <div class="message">
+         <div class="typing">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+         </div>             
+      </div>
+   </div>`;
+         chatBoxBody.scrollTop = chatBoxBody.scrollHeight;
+      } else {
+         typeLoading.remove();
+      }
+   };
+   const renderSentMessage = (message) => {
+      if (chatBoxBody) {
+         const htmlToAppend = `
+          <div class="user chat">
+            <p class="sender_name">You</p>
+            <p class="message">
+              ${message}
+            </p>
+          </div>
+        `;
+
+         chatBoxBody.innerHTML += htmlToAppend;
+         chatBoxBody.scrollTop = chatBoxBody.scrollHeight;
+      }
+   };
+
+   const renderReply = (reply) => {
+      if (chatBoxBody) {
+         const htmlToAppend = `
+          <div class="assistant chat">
+            <p class="sender_name">Ai Assistant</p>
+            <p class="message">
+              ${reply}
+            </p>
+          </div>
+        `;
+
+         chatBoxBody.innerHTML += htmlToAppend;
+         chatBoxBody.scrollTop = chatBoxBody.scrollHeight;
+      }
+   };
+
+   function setCookie(name, value, minutes) {
+      const expires = new Date();
+      expires.setTime(expires.getTime() + minutes * 60 * 1000);
+      document.cookie =
+         name +
+         "=" +
+         value +
+         ";expires=" +
+         expires.toUTCString() +
+         ";path=/" +
+         ";samesite=none;secure";
+   }
+
+   function getCookie(name) {
+      const cookieName = name + "=";
+      const decodedCookie = decodeURIComponent(document.cookie);
+      const cookieArray = decodedCookie.split(";");
+
+      for (let i = 0; i < cookieArray.length; i++) {
+         let cookie = cookieArray[i].trim();
+         if (cookie.indexOf(cookieName) === 0) {
+            return cookie.substring(cookieName.length, cookie.length);
+         }
+      }
+
+      return null;
+   }
+
+   toggleButton.addEventListener("click", toggleChatBox);
+   sendButton.addEventListener("click", sendMessage);
+})();
+
+   </script>
+   </body>
+</html>

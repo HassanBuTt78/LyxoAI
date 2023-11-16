@@ -1,21 +1,10 @@
-fetch('http://127.0.0.1:5000/chatbox/chatbox.html')
-  .then(response => response.text())
-  .then(htmlContent => {
-    const div =document.createElement('div')
-    div.id = "AiChatBot"
-    div.innerHTML = htmlContent;
-    const css = document.createElement('link')
-    css.rel = 'stylesheet';
-    css.type = 'text/css';
-    css.href = 'http://127.0.0.1:5000/chatbox/chatbox.css'
-    const js =document.createElement('script')
-    js.src = 'http://127.0.0.1:5000/chatbox/chatbox.js'
-    document.head.appendChild(css)
-    document.body.appendChild(div);
-    document.body.appendChild(js)
-  })
-  .catch(error => {
-    console.error('Error fetching and injecting HTML:', error);
-  });
 
-
+const iframe = document.createElement("iframe");
+const div = document.createElement("div");
+div.id = "lyxoaichatbotembed";
+div.style = "pointer-events: none; width: 500px; height: 100%; position: fixed; right: 0; bottom: 0; max-width: 100%; max-height: 100%;"
+iframe.src = "http://localhost:5000/widget/654f6055ce3d3b2fbc76ccc2";
+iframe.style =
+   "pointer-events: all; background: none; border: 0px; float: none; position: absolute; inset: 0px; width: 100%; height: 100%; margin: 0px; padding: 0px; min-height: 0px;";
+document.body.appendChild(div);
+div.appendChild(iframe);

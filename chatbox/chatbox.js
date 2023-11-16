@@ -13,7 +13,7 @@
    }
 
    let inTrasition = false;
-
+   let isTyping = false;
    const toggleChatBox = () => {
       if (inTrasition) return;
       inTrasition = true;
@@ -47,13 +47,18 @@
 
    const sendMessage = async () => {
       if (chatField.value.trim().length < 1) return;
+      if (isTyping) return;
+      isTyping = true;
       const message = chatField.value;
       chatField.value = "";
       renderSentMessage(message);
       setTimeout(toggleTyping, 300);
       reply = await getReply(message);
       toggleTyping();
-      setTimeout(renderReply.bind(null, reply), 300);
+      setTimeout(()=>{
+         renderReply(reply)
+         isTyping = false
+      }, 300);
    };
 
    const getReply = async (message) => {
@@ -86,6 +91,7 @@
          setCookie("chatSessionId", chat_id, 30);
          return replyJson.reply;
       } catch (error) {
+         isTyping = false
          console.error("Error fetching the reply:", error);
          return "An error occurred"; // Handle the error as needed
       }

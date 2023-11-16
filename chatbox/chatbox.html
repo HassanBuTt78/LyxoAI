@@ -1,69 +1,73 @@
-<div id="chatbot">
-   <div id="chatbox" style="display: none">
-      <div id="chatbox_head">
-         <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 30"
-            fill="none"
-            x="0px"
-            y="0px"
-         >
-            <path
-               fill-rule="evenodd"
-               clip-rule="evenodd"
-               d="M5.61538 4C4.17095 4 3 5.23638 3 6.76153V18.6165C3 19.8466 4.40857 20.4626 5.23237 19.5928L6.54006 18.2121C6.7853 17.9531 7.11792 17.8076 7.46474 17.8076H18.3846C19.8291 17.8076 21 16.5713 21 15.0461V6.76153C21 5.23638 19.8291 4 18.3846 4H5.61538ZM8 12C8.55229 12 9 11.5523 9 11C9 10.4477 8.55229 10 8 10C7.44772 10 7 10.4477 7 11C7 11.5523 7.44772 12 8 12ZM13 11C13 11.5523 12.5523 12 12 12C11.4477 12 11 11.5523 11 11C11 10.4477 11.4477 10 12 10C12.5523 10 13 10.4477 13 11ZM16 12C16.5523 12 17 11.5523 17 11C17 10.4477 16.5523 10 16 10C15.4477 10 15 10.4477 15 11C15 11.5523 15.4477 12 16 12Z"
-               fill="rgb(0,99,165)"
-            />
-         </svg>
-         <h3>AI Assistant</h3>
-      </div>
-
-      <div id="chatbox_body">
-         <div class="assistant chat">
-            <p class="sender_name">AI Assistant</p>
-            <p class="message">
-               Hey! How can I help you today?
-            </p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="Content-Security-Policy" content="frame-ancestors 'self' file://*;">
+   <title>Lyxo chatbot</title>
+   <link rel="stylesheet" href="http://127.0.0.1:5000/chatbox/chatbox.css">
+</head>
+<body>   
+   <div id="chatbot">
+      <div id="chatbox" style="display: none">
+         <div id="chatbox_head">
+            <div id="chatbox_thumbnail">
+               <img src="http://127.0.0.1:5000/chatbox/assets/pfp.svg" alt="PFP">
+            </div>
+            <h3>AI Assistant</h3>
          </div>
-         <!-- <div class="user chat">
-            <p class="sender_name">You</p>
-            <p class="message">
-               Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci
-               natus itaque vitae. Eligendi, voluptatum cupiditate modi veniam
-               recusandae minima quis.
-            </p>
-         </div> -->
-      </div>
-
-      <div id="chatbox_chatfield">
-         <form id="chatfield" onsubmit="return false;" autocomplete="off">
-            <input
-               type="text"
-               id="chat_msg"
-               placeholder="Type your Message Here..."
-            />
-            <button id="send_btn" type="submit">
-               <img
-                  src="https://cdn4.iconfinder.com/data/icons/glyphs/24/icons_send-512.png"
-                  alt=""
+   
+         <div id="chatbox_body">
+            <div class="assistant chat">
+               <p class="sender_name">AI Assistant</p>
+               <p class="message">
+                  Hey! How can I help you today?
+               </p>
+            </div>
+            <!-- <div class="user chat">
+               <p class="sender_name">You</p>
+               <p class="message">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci
+                  natus itaque vitae. Eligendi, voluptatum cupiditate modi veniam
+                  recusandae minima quis.
+               </p>
+            </div> -->
+         </div>
+   
+         <div id="chatbox_chatfield">
+            <form id="chatfield" onsubmit="return false;" autocomplete="off">
+               <input
+                  type="text"
+                  id="chat_msg"
+                  placeholder="Type your Message Here..."
                />
-            </button>
-         </form>
+               <button id="send_btn" type="submit">
+                  <img
+                     src="https://cdn4.iconfinder.com/data/icons/glyphs/24/icons_send-512.png"
+                     alt=""
+                  />
+               </button>
+            </form>
+         </div>
       </div>
+   
+      <button id="chatbox_toggle">
+         <img
+            src="http://127.0.0.1:5000/chatbox/assets/chat.svg"
+            alt=""
+            class="toggle_open"
+            style="display: block"
+         />
+         <img
+            class="toggle_close"
+            style="display: none"
+            src="https://cdn0.iconfinder.com/data/icons/user-interface-2063/24/UI_Essential_icon_expanded-02-512.png"
+            alt=""
+         />
+      </button>
    </div>
+   <script src="http://127.0.0.1:5000/chatbox/chatbox.js"></script>
+</body>
+</html>
 
-   <button id="chatbox_toggle">
-      <img
-         src="http://127.0.0.1:5000/chatbox/assets/chat.svg"
-         alt=""
-         class="toggle_open"
-         style="display: block"
-      />
-      <img
-         class="toggle_close"
-         style="display: none"
-         src="https://cdn0.iconfinder.com/data/icons/user-interface-2063/24/UI_Essential_icon_expanded-02-512.png"
-         alt=""
-      />
-   </button>
-</div>

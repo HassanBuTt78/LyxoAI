@@ -1,4 +1,5 @@
 from pymongo import MongoClient
+from bson import ObjectId
 from config import DATABASE_URI
 from utils import generate_apikey
 
@@ -10,7 +11,13 @@ class ClientBase:
 
     def api_exists(self, api_key):
         return bool(self.clients_collection.find_one({'api_key': api_key}))
-
+    
+    def get_user_info(self, user_id):
+        return self.clients_collection.find_one({'_id': ObjectId(user_id)})
+    
+    def get_user_info_by_key(self, api_key):
+        return self.clients_collection.find_one({'api_key': api_key})
+    
     def insert_new_api(self, api_name, api_key):
         api_document = {
             'key_name': api_name,
