@@ -5,7 +5,7 @@ setTimeout(function () {
       div.id = "lyxoaichatbotembed";
       div.style =
          "border: 0px; background-color: transparent; pointer-events: none; z-index: 2147483639; position: fixed; bottom: 0px; width: 100px; height: 100px; overflow: hidden; opacity: 1; max-width: 100%; right: 0px; max-height: 100%;";
-      iframe.src = "http://localhost:5000/widget/{{ id }}";
+      iframe.src = "https://lyxoai.azurewebsites.net/widget/{{ id }}";
       iframe.style =
          "pointer-events: all; background: none; border: 0px; float: none; position: absolute; inset: 0px; width: 100%; height: 100%; margin: 0px; padding: 0px; min-height: 0px;";
       document.body.appendChild(div);
