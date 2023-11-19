@@ -7,10 +7,11 @@ import chatbot
 import utils
 
 
-app = Flask(__name__, static_folder='static')
+app = Flask(__name__, static_folder='stat')
 csm = ChatSessionManager()
 cb = ClientBase()
-cors = CORS(app, resources={r"/*": {"origins": "*"}})
+origins = cb.get_all_domains()
+cors = CORS(app, resources={r"/*": {"origins": origins}})
 
 
 def update_cors_domains():
