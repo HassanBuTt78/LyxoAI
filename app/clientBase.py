@@ -1,12 +1,12 @@
 from pymongo import MongoClient
 from bson import ObjectId
-from config import DATABASE_URI
-from utils import generate_apikey
+from config import Config
+from .utils import generate_apikey
 
 
 class ClientBase:
     def __init__(self):
-        self.client = MongoClient(DATABASE_URI)
+        self.client = MongoClient(Config.DATABASE_URI)
         self.db = self.client['chatbot']
         self.clients_collection = self.db['clients']
 

@@ -1,13 +1,14 @@
 from flask import Flask, send_file, jsonify, request, render_template
 from flask_cors import CORS
 
-from session_manager import ChatSessionManager
-from clientBase import ClientBase
-import chatbot
-import utils
+from .clientBase import ClientBase
+from .session_manager import ChatSessionManager
+
+from . import chatbot
+from . import utils
 
 
-app = Flask(__name__, static_folder='stat')
+app = Flask(__name__, static_folder='static')
 csm = ChatSessionManager()
 cb = ClientBase()
 origins = cb.get_all_domains()
