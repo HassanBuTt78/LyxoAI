@@ -66,4 +66,4 @@ jobs:
         with:
           app-name: 'LyxoAI'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_E4963A933A9D4965A7BB3F3C62010B10 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_B02265F70C61435D89BDFCE460B3CDDE }}
