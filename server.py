@@ -6,15 +6,29 @@ from clientBase import ClientBase
 import chatbot
 import utils
 
-app = Flask(__name__, static_folder='chatbox')
-cors = CORS(app, resources={r"/*": {"origins": "*"}})
+
+app = Flask(__name__, static_folder='static')
 csm = ChatSessionManager()
 cb = ClientBase()
+cors = CORS(app, resources={r"/*": {"origins": "*"}})
 
-@app.route('/script')
-def serve_js_file():
-    js_file_path = './lyxoai-embeder.js'
-    return send_file(js_file_path)
+
+def update_cors_domains():
+    origins = cb.get_all_domains()
+    cors = CORS(app, resources={r"/*": {"origins": origins}})
+
+
+@app.route('/script/<id>')
+def serve_js_file(id):
+    if not id:
+        return '', 404
+    return render_template('script-temp.js', id=id)
+
+
+@app.route('/')
+def home():
+    return send_file('./LandingPage/home.html')
+
 
 @app.route('/widget/<widget_id>')
 def send_widget(widget_id):
@@ -23,31 +37,33 @@ def send_widget(widget_id):
     data = cb.get_user_info(widget_id)
     if data is None:
         return '', 404
-    
+
     response = render_template(data["widget"]["template"], data=data)
     return response
 
+
 @app.route('/chat', methods=["POST"])
 def chatCompletion():
-    if 'Authorization' not in request.headers:
-        return jsonify({'error': 'Authentication Error - API key not provided'})
-    authorization_header = request.headers['Authorization']
-    _, api_key = authorization_header.split(' ')
-    if not cb.api_exists(api_key):
-        return jsonify({'error': 'Authentication Error - Invalid API key provided'})
-    system_prompt = cb.get_user_info_by_key(api_key)['system_prompt']
+    print('request Recieved')
+    auth = utils.authenticate_request(request, cb)
+    if 'error' in auth:
+        return jsonify(auth), 403
+    system_prompt = auth['system_prompt']
     try:
         data = request.get_json()
         if 'message' in data:
             message = data['message']
-            if 'chatSessionId' in data:
-                chat_id = data['chatSessionId']
-                response_data = chatbot.get_completion(message, chat_id, False, system_prompt,csm)
-                response =  jsonify({"reply": response_data, "chatSessionId": chat_id})
+            chat_id = request.cookies.get('chatSessionId')
+            if chat_id:
+                response_data = chatbot.get_completion(
+                    message, chat_id, False, system_prompt, csm)
+                response = jsonify({"reply": response_data})
                 return response
             chat_id = utils.generate_chatid()
-            response_data = chatbot.get_completion(message, chat_id, True, system_prompt,csm)
-            response = jsonify({"reply": response_data, "chatSessionId": chat_id})
+            response_data = chatbot.get_completion(
+                message, chat_id, True, system_prompt, csm)
+            response = jsonify({"reply": response_data})
+            response.set_cookie('chatSessionId', chat_id, max_age=1800)
             return response
 
         return jsonify({'error': 'Invalid request structure'}), 400
@@ -58,4 +74,5 @@ def chatCompletion():
 
 
 if __name__ == '__main__':
+    update_cors_domains()
     app.run(debug=True)

@@ -5,12 +5,6 @@
    const chatBoxBody = document.getElementById("chatbox_body");
    const chatBox = document.getElementById("chatbox");
    const typeLoading = document.getElementById("typing");
-   let chat_id;
-   if (getCookie("chatSessionId")) {
-      chat_id = getCookie("chatSessionId");
-   } else {
-      chat_id = "";
-   }
 
    let inTrasition = false;
    let isTyping = false;
@@ -55,27 +49,24 @@
       setTimeout(toggleTyping, 300);
       reply = await getReply(message);
       toggleTyping();
-      setTimeout(()=>{
-         renderReply(reply)
-         isTyping = false
+      setTimeout(() => {
+         renderReply(reply);
+         isTyping = false;
       }, 300);
    };
 
    const getReply = async (message) => {
       try {
-         let body;
-         if (chat_id == "" || chat_id == undefined || chat_id == null) {
-            requestBody = { message };
-         } else {
-            requestBody = { message: message, chatSessionId: chat_id };
-         }
+         const requestBody = { message };
 
          const response = await fetch("http://localhost:5000/chat", {
             method: "POST",
+            credentials: 'include',
             headers: {
                "Content-Type": "application/json", // Set the appropriate content type
                authorization:
                   "bearer e571614c8c35e979ddabd1b8e358d4a34786705026d2ac91b2e8cf131ff5bb31",
+               
             },
             body: JSON.stringify(requestBody), // Send your message as JSON data
          });
@@ -91,7 +82,7 @@
          setCookie("chatSessionId", chat_id, 30);
          return replyJson.reply;
       } catch (error) {
-         isTyping = false
+         isTyping = false;
          console.error("Error fetching the reply:", error);
          return "An error occurred"; // Handle the error as needed
       }

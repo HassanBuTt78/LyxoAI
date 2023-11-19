@@ -1,0 +1,934 @@
+<!doctype html><html><head>
+    <meta charset="utf-8">
+    <title>Lyxo AI</title>
+    
+    <meta name="description" content="">
+    
+    <link rel="shortcut icon" href="https://i.imgur.com/KVlW5dI.jpg" type="image/x-icon">
+    
+    
+    <meta property="og:description" content="">
+    <meta property="og:title" content="Lyxo AI">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:title" content="Lyxo AI">
+
+    
+
+    
+    <style>
+a.cta_button{-moz-box-sizing:content-box !important;-webkit-box-sizing:content-box !important;box-sizing:content-box !important;vertical-align:middle}.hs-breadcrumb-menu{list-style-type:none;margin:0px 0px 0px 0px;padding:0px 0px 0px 0px}.hs-breadcrumb-menu-item{float:left;padding:10px 0px 10px 10px}.hs-breadcrumb-menu-divider:before{content:'›';padding-left:10px}.hs-featured-image-link{border:0}.hs-featured-image{float:right;margin:0 0 20px 20px;max-width:50%}@media (max-width: 568px){.hs-featured-image{float:none;margin:0;width:100%;max-width:100%}}.hs-screen-reader-text{clip:rect(1px, 1px, 1px, 1px);height:1px;overflow:hidden;position:absolute !important;width:1px}
+</style>
+
+<link rel="stylesheet" href="https://cdn2.hubspot.net/hub/7052064/hub_generated/template_assets/1700230788290/hubspot/flux_theme/assets/css/main.min.css">
+<style>
+html {
+  font-size: 18px;
+}
+
+body {
+  background-color: #ffffff;
+  color: #050533;
+  font-family: sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: sans-serif;
+  color: #050533;
+}
+
+blockquote {
+  font-family: sans-serif;
+}
+
+.body-section.dark {
+  color: #ffffff;
+}
+.body-section.dark a {
+  font-family: sans-serif;
+  color: #ffffff;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: underline;
+}
+.body-section.dark a:active {
+  color: #cdcdcd;
+}
+.body-section.dark a:visited {
+  color: #cdcdcd;
+}
+.body-section.dark a:hover {
+  color: #cdcdcd;
+}
+.body-section.dark h1,
+.body-section.dark h2,
+.body-section.dark h3,
+.body-section.dark h4,
+.body-section.dark h5,
+.body-section.dark h6 {
+  color: #ffffff;
+}
+
+.body-section.light a {
+  font-family: sans-serif;
+  color: #050533;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: underline;
+}
+.body-section.light a:active {
+  color: #373765;
+}
+.body-section.light a:visited {
+  color: #373765;
+}
+.body-section.light a:hover {
+  color: #373765;
+}
+
+/* One Line Inputs */
+input[type=text],
+input[type=password],
+input[type=datetime],
+input[type=datetime-local],
+input[type=date],
+input[type=month],
+input[type=time],
+input[type=week],
+input[type=number],
+input[type=email],
+input[type=url],
+input[type=search],
+input[type=tel],
+input[type=color],
+input[type=file],
+textarea,
+select {
+  color: #050533;
+  font-family: sans-serif;
+}
+input[type=text]::-webkit-input-placeholder,
+input[type=password]::-webkit-input-placeholder,
+input[type=datetime]::-webkit-input-placeholder,
+input[type=datetime-local]::-webkit-input-placeholder,
+input[type=date]::-webkit-input-placeholder,
+input[type=month]::-webkit-input-placeholder,
+input[type=time]::-webkit-input-placeholder,
+input[type=week]::-webkit-input-placeholder,
+input[type=number]::-webkit-input-placeholder,
+input[type=email]::-webkit-input-placeholder,
+input[type=url]::-webkit-input-placeholder,
+input[type=search]::-webkit-input-placeholder,
+input[type=tel]::-webkit-input-placeholder,
+input[type=color]::-webkit-input-placeholder,
+input[type=file]::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder,
+select::-webkit-input-placeholder {
+  font-family: Source Sans Pro;
+}
+input[type=text]::-moz-placeholder,
+input[type=password]::-moz-placeholder,
+input[type=datetime]::-moz-placeholder,
+input[type=datetime-local]::-moz-placeholder,
+input[type=date]::-moz-placeholder,
+input[type=month]::-moz-placeholder,
+input[type=time]::-moz-placeholder,
+input[type=week]::-moz-placeholder,
+input[type=number]::-moz-placeholder,
+input[type=email]::-moz-placeholder,
+input[type=url]::-moz-placeholder,
+input[type=search]::-moz-placeholder,
+input[type=tel]::-moz-placeholder,
+input[type=color]::-moz-placeholder,
+input[type=file]::-moz-placeholder,
+textarea::-moz-placeholder,
+select::-moz-placeholder {
+  font-family: sans-serif;
+}
+input[type=text]:-ms-input-placeholder,
+input[type=password]:-ms-input-placeholder,
+input[type=datetime]:-ms-input-placeholder,
+input[type=datetime-local]:-ms-input-placeholder,
+input[type=date]:-ms-input-placeholder,
+input[type=month]:-ms-input-placeholder,
+input[type=time]:-ms-input-placeholder,
+input[type=week]:-ms-input-placeholder,
+input[type=number]:-ms-input-placeholder,
+input[type=email]:-ms-input-placeholder,
+input[type=url]:-ms-input-placeholder,
+input[type=search]:-ms-input-placeholder,
+input[type=tel]:-ms-input-placeholder,
+input[type=color]:-ms-input-placeholder,
+input[type=file]:-ms-input-placeholder,
+textarea:-ms-input-placeholder,
+select:-ms-input-placeholder {
+  font-family: sans-serif;
+}
+
+.body-section.light input[type=text],
+.body-section.light input[type=password],
+.body-section.light input[type=datetime],
+.body-section.light input[type=datetime-local],
+.body-section.light input[type=date],
+.body-section.light input[type=month],
+.body-section.light input[type=time],
+.body-section.light input[type=week],
+.body-section.light input[type=number],
+.body-section.light input[type=email],
+.body-section.light input[type=url],
+.body-section.light input[type=search],
+.body-section.light input[type=tel],
+.body-section.light input[type=color],
+.body-section.light input[type=file],
+.body-section.light textarea,
+.body-section.light select {
+  border-color: #050533;
+}
+.body-section.light .hs-input[type=checkbox]:not(:checked) + span:before, .body-section.light .hs-input[type=checkbox]:checked + span:before, .body-section.light .hs-input[type=radio]:not(:checked) + span:before, .body-section.light .hs-input[type=radio]:checked + span:before {
+  border-color: #050533;
+}
+
+/* Forms buttons */
+.body-section.dark .hs-button,
+.body-section.dark a.hs-button,
+.body-section.dark input[type=submit],
+.body-section.dark input[type=button],
+.body-section.light .hs-button,
+.body-section.light a.hs-button,
+.body-section.light input[type=submit],
+.body-section.light input[type=button] {
+  background-color: #2cda86;
+  color: #ffffff;
+  border-radius: 30px;
+  font-family: sans-serif;
+}
+.body-section.dark .hs-button:hover,
+.body-section.dark a.hs-button:hover,
+.body-section.dark input[type=submit]:hover,
+.body-section.dark input[type=button]:hover,
+.body-section.light .hs-button:hover,
+.body-section.light a.hs-button:hover,
+.body-section.light input[type=submit]:hover,
+.body-section.light input[type=button]:hover {
+  background-color: #18c672;
+}
+
+/* Forms customizations */
+.hs-input[type=checkbox]:not(:checked) + span:after, .hs-input[type=checkbox]:checked + span:after {
+  border-bottom-color: #050533;
+  border-right-color: #050533;
+}
+.hs-input[type=radio]:not(:checked) + span:after, .hs-input[type=radio]:checked + span:after {
+  background-color: #050533;
+}
+
+.hs-fieldtype-file div.input:before {
+  background-color: #2cda86;
+  color: #ffffff;
+  border-color: #2cda86;
+}
+.hs-fieldtype-file div.input:hover:before {
+  background-color: #18c672;
+  border-color: #18c672;
+}
+
+/* enable dropdown button customization */
+.hs-fieldtype-select .input:after {
+  color: #050533;
+}</style>
+
+<link rel="stylesheet" href="https://cdn2.hubspot.net/hub/-1/hub_generated/module_assets/-47846617941/1700230809321/module_-47846617941_PQL_Content.min.css">
+<link rel="stylesheet" href="https://cdn2.hubspot.net/hub/-1/hub_generated/module_assets/-9362205/1700230853263/module_-9362205_Follow_Me_-_LP.min.css">
+
+    <style>
+    #hs_cos_wrapper_dnd__footer-module-3 .social-links__icon .social-links__icon-wrapper.social-links__icon-wrapper--custom { background-color:#211df9; }
+
+    </style>
+  
+<style>
+  @font-face {
+    font-family: sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+    src: url("/_hcms/googlefonts/Public_Sans/regular.woff2") format("woff2"), url("/_hcms/googlefonts/Public_Sans/regular.woff") format("woff");
+  }
+  @font-face {
+    font-family: sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+    src: url("/_hcms/googlefonts/Source_Sans_Pro/regular.woff2") format("woff2"), url("/_hcms/googlefonts/Source_Sans_Pro/regular.woff") format("woff");
+  }
+</style>
+
+<!-- Editor Styles -->
+<style id="hs_editor_style" type="text/css">
+#hs_cos_wrapper_module_1700380711097 input[type="text"] { border-radius: 20px !important; padding-bottom: 10px !important; padding-top: 10px !important }
+#hs_cos_wrapper_module_1700380711097 input[type="email"] { border-radius: 20px !important; padding-bottom: 10px !important; padding-top: 10px !important }
+#hs_cos_wrapper_module_1700380711097 textarea { border-radius: 20px !important; padding-bottom: 10px !important; padding-top: 10px !important }
+#hs_cos_wrapper_module_1700380711097 input[type="number"] { border-radius: 20px !important; padding-bottom: 10px !important; padding-top: 10px !important }
+#hs_cos_wrapper_module_1700380711097 select { border-radius: 20px !important; padding-bottom: 10px !important; padding-top: 10px !important }
+#hs_cos_wrapper_module_1700380711097 input[type="file"] { border-radius: 20px !important; padding-bottom: 10px !important; padding-top: 10px !important }
+#hs_cos_wrapper_module_1700380711097 input[type="tel"] { border-radius: 20px !important; padding-bottom: 10px !important; padding-top: 10px !important }
+#hs_cos_wrapper_module_1700380711097 input[type="date"] { border-radius: 20px !important; padding-bottom: 10px !important; padding-top: 10px !important }
+#hs_cos_wrapper_module_1700380711097 input[type="text"] { border-radius: 20px !important; padding-bottom: 10px !important; padding-top: 10px !important }
+#hs_cos_wrapper_module_1700380711097 input[type="email"] { border-radius: 20px !important; padding-bottom: 10px !important; padding-top: 10px !important }
+#hs_cos_wrapper_module_1700380711097 textarea { border-radius: 20px !important; padding-bottom: 10px !important; padding-top: 10px !important }
+#hs_cos_wrapper_module_1700380711097 input[type="number"] { border-radius: 20px !important; padding-bottom: 10px !important; padding-top: 10px !important }
+#hs_cos_wrapper_module_1700380711097 select { border-radius: 20px !important; padding-bottom: 10px !important; padding-top: 10px !important }
+#hs_cos_wrapper_module_1700380711097 input[type="file"] { border-radius: 20px !important; padding-bottom: 10px !important; padding-top: 10px !important }
+#hs_cos_wrapper_module_1700380711097 input[type="tel"] { border-radius: 20px !important; padding-bottom: 10px !important; padding-top: 10px !important }
+#hs_cos_wrapper_module_1700380711097 input[type="date"] { border-radius: 20px !important; padding-bottom: 10px !important; padding-top: 10px !important }
+.dnd__header-row-0-background-gradient {
+  background-image: linear-gradient(to left, rgba(126, 29, 249, 1), rgba(33, 29, 249, 1)) !important;
+}
+.dnd__header-row-0-max-width-section-centering > .row-fluid {
+  max-width: 960px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+.dnd__header-module-2-flexbox-positioning {
+  display: -ms-flexbox !important;
+  -ms-flex-direction: column !important;
+  -ms-flex-align: center !important;
+  -ms-flex-pack: start;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: flex-start;
+}
+.dnd__header-module-2-flexbox-positioning > div {
+  max-width: 100%;
+  flex-shrink: 0 !important;
+}
+.dnd__header-module-6-flexbox-positioning {
+  display: -ms-flexbox !important;
+  -ms-flex-direction: column !important;
+  -ms-flex-align: center !important;
+  -ms-flex-pack: start;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: flex-start;
+}
+.dnd__header-module-6-flexbox-positioning > div {
+  max-width: 100%;
+  flex-shrink: 0 !important;
+}
+.dnd__checklist-row-0-max-width-section-centering > .row-fluid {
+  max-width: 960px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+.dnd__checklist-module-1-flexbox-positioning {
+  display: -ms-flexbox !important;
+  -ms-flex-direction: column !important;
+  -ms-flex-align: center !important;
+  -ms-flex-pack: start;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: flex-start;
+}
+.dnd__checklist-module-1-flexbox-positioning > div {
+  max-width: 100%;
+  flex-shrink: 0 !important;
+}
+.dnd__form-row-0-max-width-section-centering > .row-fluid {
+  max-width: 960px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+.dnd__form-row-1-background-gradient {
+  background-image: linear-gradient(to left, rgba(126, 29, 249, 1), rgba(33, 29, 249, 1)) !important;
+}
+.dnd__form-row-1-max-width-section-centering > .row-fluid {
+  max-width: 960px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+.module_1700380711097-flexbox-positioning {
+  display: -ms-flexbox !important;
+  -ms-flex-direction: column !important;
+  -ms-flex-align: center !important;
+  -ms-flex-pack: start;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: flex-start;
+}
+.module_1700380711097-flexbox-positioning > div {
+  max-width: 100%;
+  flex-shrink: 0 !important;
+}
+.dnd__footer-row-0-max-width-section-centering > .row-fluid {
+  max-width: 960px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+.dnd__footer-module-2-flexbox-positioning {
+  display: -ms-flexbox !important;
+  -ms-flex-direction: column !important;
+  -ms-flex-align: center !important;
+  -ms-flex-pack: start;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: flex-start;
+}
+.dnd__footer-module-2-flexbox-positioning > div {
+  max-width: 100%;
+  flex-shrink: 0 !important;
+}
+/* HubSpot Non-stacked Media Query Styles */
+@media (min-width:768px) {
+  .dnd__header-row-0-vertical-alignment > .row-fluid {
+    display: -ms-flexbox !important;
+    -ms-flex-direction: row;
+    display: flex !important;
+    flex-direction: row;
+  }
+  .dnd__header-column-1-vertical-alignment {
+    display: -ms-flexbox !important;
+    -ms-flex-direction: column !important;
+    -ms-flex-pack: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+  }
+  .dnd__header-column-1-vertical-alignment > div {
+    flex-shrink: 0 !important;
+  }
+  .dnd__header-column-1-row-1-vertical-alignment > .row-fluid {
+    display: -ms-flexbox !important;
+    -ms-flex-direction: row;
+    display: flex !important;
+    flex-direction: row;
+  }
+  .dnd__header-module-6-vertical-alignment {
+    display: -ms-flexbox !important;
+    -ms-flex-direction: column !important;
+    -ms-flex-pack: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+  }
+  .dnd__header-module-6-vertical-alignment > div {
+    flex-shrink: 0 !important;
+  }
+  .dnd__header-column-3-vertical-alignment {
+    display: -ms-flexbox !important;
+    -ms-flex-direction: column !important;
+    -ms-flex-pack: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+  }
+  .dnd__header-column-3-vertical-alignment > div {
+    flex-shrink: 0 !important;
+  }
+  .dnd__checklist-row-0-vertical-alignment > .row-fluid {
+    display: -ms-flexbox !important;
+    -ms-flex-direction: row;
+    display: flex !important;
+    flex-direction: row;
+  }
+  .dnd__checklist-column-2-vertical-alignment {
+    display: -ms-flexbox !important;
+    -ms-flex-direction: column !important;
+    -ms-flex-pack: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+  }
+  .dnd__checklist-column-2-vertical-alignment > div {
+    flex-shrink: 0 !important;
+  }
+  .dnd__checklist-column-2-row-1-vertical-alignment > .row-fluid {
+    display: -ms-flexbox !important;
+    -ms-flex-direction: row;
+    display: flex !important;
+    flex-direction: row;
+  }
+  .dnd__checklist-module-4-vertical-alignment {
+    display: -ms-flexbox !important;
+    -ms-flex-direction: column !important;
+    -ms-flex-pack: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+  }
+  .dnd__checklist-module-4-vertical-alignment > div {
+    flex-shrink: 0 !important;
+  }
+  .dnd__checklist-module-1-vertical-alignment {
+    display: -ms-flexbox !important;
+    -ms-flex-direction: column !important;
+    -ms-flex-pack: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+  }
+  .dnd__checklist-module-1-vertical-alignment > div {
+    flex-shrink: 0 !important;
+  }
+  .dnd__form-row-0-vertical-alignment > .row-fluid {
+    display: -ms-flexbox !important;
+    -ms-flex-direction: row;
+    display: flex !important;
+    flex-direction: row;
+  }
+  .dnd__form-row-1-vertical-alignment > .row-fluid {
+    display: -ms-flexbox !important;
+    -ms-flex-direction: row;
+    display: flex !important;
+    flex-direction: row;
+  }
+  .dnd__form-column-1-vertical-alignment {
+    display: -ms-flexbox !important;
+    -ms-flex-direction: column !important;
+    -ms-flex-pack: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+  }
+  .dnd__form-column-1-vertical-alignment > div {
+    flex-shrink: 0 !important;
+  }
+  .cell_17003807110962-vertical-alignment {
+    display: -ms-flexbox !important;
+    -ms-flex-direction: column !important;
+    -ms-flex-pack: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+  }
+  .cell_17003807110962-vertical-alignment > div {
+    flex-shrink: 0 !important;
+  }
+  .dnd__footer-column-1-row-0-vertical-alignment > .row-fluid {
+    display: -ms-flexbox !important;
+    -ms-flex-direction: row;
+    display: flex !important;
+    flex-direction: row;
+  }
+  .dnd__footer-module-3-vertical-alignment {
+    display: -ms-flexbox !important;
+    -ms-flex-direction: column !important;
+    -ms-flex-pack: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+  }
+  .dnd__footer-module-3-vertical-alignment > div {
+    flex-shrink: 0 !important;
+  }
+  .dnd__footer-module-2-vertical-alignment {
+    display: -ms-flexbox !important;
+    -ms-flex-direction: column !important;
+    -ms-flex-pack: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+  }
+  .dnd__footer-module-2-vertical-alignment > div {
+    flex-shrink: 0 !important;
+  }
+}
+/* HubSpot Styles (default) */
+.dnd__header-row-0-padding {
+  padding-top: 50px !important;
+  padding-bottom: 35px !important;
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+}
+.dnd__header-column-1-row-1-padding {
+  padding-top: 80px !important;
+  padding-bottom: 80px !important;
+}
+.dnd__checklist-row-0-padding {
+  padding-top: 40px !important;
+  padding-bottom: 40px !important;
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+}
+.dnd__checklist-column-2-row-0-padding {
+  padding-top: 0px !important;
+}
+.dnd__checklist-column-2-row-1-padding {
+  padding-top: 10px !important;
+}
+.dnd__form-row-0-padding {
+  padding-top: 40px !important;
+  padding-bottom: 40px !important;
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+}
+.dnd__form-row-1-padding {
+  padding-top: 40px !important;
+  padding-bottom: 40px !important;
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+}
+.dnd__footer-row-0-padding {
+  padding-top: 25px !important;
+  padding-bottom: 25px !important;
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+}
+/* HubSpot Styles (mobile) */
+@media (max-width: 767px) {
+  .dnd__header-row-0-padding {
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+  }
+  .dnd__header-column-1-row-1-padding {
+    padding-top: 40px !important;
+    padding-bottom: 0px !important;
+  }
+  .dnd__header-column-3-row-1-padding {
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+  }
+  .dnd__checklist-row-0-padding {
+    padding-top: 40px !important;
+    padding-bottom: 20px !important;
+  }
+  .dnd__checklist-column-2-row-0-padding {
+    padding-top: 20px !important;
+  }
+  .dnd__checklist-column-2-row-1-padding {
+    padding-top: 0px !important;
+  }
+  .dnd__form-row-0-padding {
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+  }
+  .dnd__form-row-1-padding {
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+  }
+}
+</style>
+    
+
+    
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+    
+    
+  <meta name="generator" content="HubSpot"></head>
+  <body>
+    <div class="body-wrapper">
+      
+      
+
+      
+  <div class="dnd-content-area flux__download-assets">
+    <div class="body-container-wrapper">
+      <div class="body-container">
+        
+
+        <div class="container-fluid body-section flux__download-assets--banner dark">
+<div class="row-fluid-wrapper">
+<div class="row-fluid">
+<div class="span12 widget-span widget-type-cell "  data-widget-type="cell" data-x="0" data-w="12">
+
+<div class="row-fluid-wrapper row-depth-1 row-number-1 dnd__header-row-0-background-gradient dnd__header-row-0-vertical-alignment dnd-section dnd__header-row-0-padding dnd__header-row-0-max-width-section-centering">
+<div class="row-fluid ">
+<div class="span12 widget-span widget-type-cell dnd__header-column-1-vertical-alignment dnd-column"  data-widget-type="cell" data-x="0" data-w="12">
+
+<div class="row-fluid-wrapper row-depth-1 row-number-2 dnd-row">
+<div class="row-fluid ">
+<div class="span12 widget-span widget-type-custom_widget dnd__header-module-2-flexbox-positioning dnd-module"  data-widget-type="custom_widget" data-x="0" data-w="12">
+<div id="hs_cos_wrapper_dnd__header-module-2" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module widget-type-logo widget-type-logo"  data-hs-cos-general-type="widget" data-hs-cos-type="module">
+  <span id="hs_cos_wrapper_dnd__header-module-2_hs_logo_widget" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_logo"  data-hs-cos-general-type="widget" data-hs-cos-type="logo"><a href="/" id="hs-link-dnd__header-module-2_hs_logo_widget" style="border-width:0px;border:0px;"><img src="https://44448911.fs1.hubspotusercontent-na1.net/hub/44448911/hubfs/Untitled%20design(1).png?width=250&amp;height=100&amp;name=Untitled%20design(1).png" class="hs-image-widget " height="100" style="height: auto;width:250px;border-width:0px;border:0px;" width="250" alt="Untitled design(1)" title="Untitled design(1)" loading="eager" srcset="https://44448911.fs1.hubspotusercontent-na1.net/hub/44448911/hubfs/Untitled%20design(1).png?width=125&amp;height=50&amp;name=Untitled%20design(1).png 125w, https://44448911.fs1.hubspotusercontent-na1.net/hub/44448911/hubfs/Untitled%20design(1).png?width=250&amp;height=100&amp;name=Untitled%20design(1).png 250w, https://44448911.fs1.hubspotusercontent-na1.net/hub/44448911/hubfs/Untitled%20design(1).png?width=375&amp;height=150&amp;name=Untitled%20design(1).png 375w, https://44448911.fs1.hubspotusercontent-na1.net/hub/44448911/hubfs/Untitled%20design(1).png?width=500&amp;height=200&amp;name=Untitled%20design(1).png 500w, https://44448911.fs1.hubspotusercontent-na1.net/hub/44448911/hubfs/Untitled%20design(1).png?width=625&amp;height=250&amp;name=Untitled%20design(1).png 625w, https://44448911.fs1.hubspotusercontent-na1.net/hub/44448911/hubfs/Untitled%20design(1).png?width=750&amp;height=300&amp;name=Untitled%20design(1).png 750w" sizes="(max-width: 250px) 100vw, 250px"></a></span>
+</div>
+
+</div><!--end widget-span -->
+</div><!--end row-->
+</div><!--end row-wrapper -->
+
+<div class="row-fluid-wrapper row-depth-1 row-number-3 dnd__header-column-1-row-1-vertical-alignment dnd-row dnd__header-column-1-row-1-padding">
+<div class="row-fluid ">
+<div class="span7 widget-span widget-type-cell dnd__header-column-3-vertical-alignment dnd-column"  data-widget-type="cell" data-x="0" data-w="7">
+
+<div class="row-fluid-wrapper row-depth-1 row-number-4 dnd-row">
+<div class="row-fluid ">
+<div class="span12 widget-span widget-type-custom_widget dnd-module"  data-widget-type="custom_widget" data-x="0" data-w="12">
+<div id="hs_cos_wrapper_dnd__header-module-4" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module widget-type-rich_text widget-type-rich_text"  data-hs-cos-general-type="widget" data-hs-cos-type="module"><span id="hs_cos_wrapper_dnd__header-module-4_" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_rich_text"  data-hs-cos-general-type="widget" data-hs-cos-type="rich_text"><h1>Resolve up to 80% of customer questions with AI </h1>
+<p>Let this AI answer all the stupid questions of your customers before they get to you.</p>
+<p>Get a Free Demo Bot for your website right now!</p></span></div>
+
+</div><!--end widget-span -->
+</div><!--end row-->
+</div><!--end row-wrapper -->
+
+<div class="row-fluid-wrapper row-depth-1 row-number-5 dnd__header-column-3-row-1-padding dnd-row">
+<div class="row-fluid ">
+<div class="span12 widget-span widget-type-custom_widget dnd-module"  data-widget-type="custom_widget" data-x="0" data-w="12">
+<div id="hs_cos_wrapper_dnd__header-module-5" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module"  data-hs-cos-general-type="widget" data-hs-cos-type="module">
+  
+
+
+
+  
+    
+  
+
+
+
+<a class="hs-button " href="mailto:hasanalib288@gmail.com" id="hs-button_dnd__header-module-5" rel="">
+  Get Free Demo
+</a>
+
+</div>
+
+</div><!--end widget-span -->
+</div><!--end row-->
+</div><!--end row-wrapper -->
+
+</div><!--end widget-span -->
+<div class="span5 widget-span widget-type-custom_widget dnd__header-module-6-vertical-alignment dnd-module dnd__header-module-6-flexbox-positioning"  data-widget-type="custom_widget" data-x="7" data-w="5">
+<div id="hs_cos_wrapper_dnd__header-module-6" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module widget-type-linked_image widget-type-linked_image"  data-hs-cos-general-type="widget" data-hs-cos-type="module">
+    
+
+
+
+
+
+
+  
+
+
+
+<span id="hs_cos_wrapper_dnd__header-module-6_" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_linked_image"  data-hs-cos-general-type="widget" data-hs-cos-type="linked_image"><img src="https://44448911.fs1.hubspotusercontent-na1.net/hubfs/44448911/HeroLyxo-1.png" class="hs-image-widget " style="max-width: 100%; height: auto;" alt="HeroLyxo-1" title="HeroLyxo-1"></span></div>
+
+</div><!--end widget-span -->
+</div><!--end row-->
+</div><!--end row-wrapper -->
+
+</div><!--end widget-span -->
+</div><!--end row-->
+</div><!--end row-wrapper -->
+
+</div><!--end widget-span -->
+</div>
+</div>
+</div>
+
+        
+
+        <div class="container-fluid body-section flux__download-assets--checklist light">
+<div class="row-fluid-wrapper">
+<div class="row-fluid">
+<div class="span12 widget-span widget-type-cell "  data-widget-type="cell" data-x="0" data-w="12">
+
+<div class="row-fluid-wrapper row-depth-1 row-number-1 dnd__checklist-row-0-padding dnd-section dnd__checklist-row-0-max-width-section-centering dnd__checklist-row-0-vertical-alignment">
+<div class="row-fluid ">
+<div class="span7 widget-span widget-type-custom_widget dnd__checklist-module-1-flexbox-positioning dnd__checklist-module-1-vertical-alignment dnd-module"  data-widget-type="custom_widget" data-x="0" data-w="7">
+<div id="hs_cos_wrapper_dnd__checklist-module-1" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module widget-type-linked_image widget-type-linked_image"  data-hs-cos-general-type="widget" data-hs-cos-type="module">
+    
+
+
+
+
+
+
+  
+
+
+
+<span id="hs_cos_wrapper_dnd__checklist-module-1_" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_linked_image"  data-hs-cos-general-type="widget" data-hs-cos-type="linked_image"><img src="https://44448911.fs1.hubspotusercontent-na1.net/hubfs/44448911/image.png" sizes="(max-width: 436px) 100vw, 436px"></span></div>
+
+</div><!--end widget-span -->
+<div class="span5 widget-span widget-type-cell dnd-column dnd__checklist-column-2-vertical-alignment"  data-widget-type="cell" data-x="7" data-w="5">
+
+<div class="row-fluid-wrapper row-depth-1 row-number-2 dnd__checklist-column-2-row-0-padding dnd-row">
+<div class="row-fluid ">
+<div class="span12 widget-span widget-type-custom_widget dnd-module"  data-widget-type="custom_widget" data-x="0" data-w="12">
+<div id="hs_cos_wrapper_dnd__checklist-module-3" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module widget-type-rich_text widget-type-rich_text"  data-hs-cos-general-type="widget" data-hs-cos-type="module"><span id="hs_cos_wrapper_dnd__checklist-module-3_" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_rich_text"  data-hs-cos-general-type="widget" data-hs-cos-type="rich_text"><h2 style="margin-bottom: 1.3rem;">What can it Do?</h2></span></div>
+
+</div><!--end widget-span -->
+</div><!--end row-->
+</div><!--end row-wrapper -->
+
+<div class="row-fluid-wrapper row-depth-1 row-number-3 dnd__checklist-column-2-row-1-vertical-alignment dnd__checklist-column-2-row-1-padding dnd-row">
+<div class="row-fluid ">
+<div class="span12 widget-span widget-type-custom_widget dnd-module dnd__checklist-module-4-vertical-alignment"  data-widget-type="custom_widget" data-x="0" data-w="12">
+<div id="hs_cos_wrapper_dnd__checklist-module-4" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module widget-type-rich_text widget-type-rich_text"  data-hs-cos-general-type="widget" data-hs-cos-type="module"><span id="hs_cos_wrapper_dnd__checklist-module-4_" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_rich_text"  data-hs-cos-general-type="widget" data-hs-cos-type="rich_text"><table style="border-collapse: collapse; border-spacing: 0px; table-layout: fixed; width: 99.9785%; height: 246px; border: 1px none #99acc2;">
+<tbody>
+<tr style="height: 111px;">
+<td style="width: 5.15464%; border: medium; padding: 0px; vertical-align: top; height: 111px;"><img style="margin-top: 5px;" src="https://7303166.fs1.hubspotusercontent-na1.net/hubfs/7303166/Marketing%20Starter/check_green.png"></td>
+<td style="border: medium; padding: 0px; width: 94.8668%; height: 111px;">
+<p style="margin-top: 0; margin-left: 26px; margin-bottom: 30px;">Answer questions of your customers and save you and your support team time and money</p>
+</td>
+</tr>
+<tr style="height: 84px;">
+<td style="width: 5.15464%; border: medium; padding: 0px; vertical-align: top; height: 84px;"><img style="margin-top: 5px;" src="https://7303166.fs1.hubspotusercontent-na1.net/hubfs/7303166/Marketing%20Starter/check_green.png"></td>
+<td style="border: medium; padding: 0px; width: 94.8668%; height: 84px;">
+<p style="margin-top: 0; margin-left: 26px; margin-bottom: 30px;">Refer the customer to your support system if their problem is complicated</p>
+</td>
+</tr>
+<tr style="height: 51px;">
+<td style="width: 5.15464%; border: medium; padding: 0px; vertical-align: top; height: 51px;"><img style="margin-top: 5px;" src="https://7303166.fs1.hubspotusercontent-na1.net/hubfs/7303166/Marketing%20Starter/check_green.png"></td>
+<td style="border: medium; padding: 0px; width: 94.8668%; height: 51px;">
+<p style="margin-top: 0; margin-left: 26px; margin-bottom: 20px;">Give advice, pitch, and sell to visitors.</p>
+</td>
+</tr>
+</tbody>
+</table></span></div>
+
+</div><!--end widget-span -->
+</div><!--end row-->
+</div><!--end row-wrapper -->
+
+<div class="row-fluid-wrapper row-depth-1 row-number-4 dnd-row">
+<div class="row-fluid ">
+<div class="span12 widget-span widget-type-custom_widget dnd-module"  data-widget-type="custom_widget" data-x="0" data-w="12">
+<div id="hs_cos_wrapper_dnd__checklist-module-5" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module"  data-hs-cos-general-type="widget" data-hs-cos-type="module">
+  
+
+
+
+  
+    
+  
+
+
+
+<a class="hs-button " href="mailto:hasanalib288@gmail.com" id="hs-button_dnd__checklist-module-5" rel="">
+  Get Free Demo
+</a>
+
+</div>
+
+</div><!--end widget-span -->
+</div><!--end row-->
+</div><!--end row-wrapper -->
+
+</div><!--end widget-span -->
+</div><!--end row-->
+</div><!--end row-wrapper -->
+
+</div><!--end widget-span -->
+</div>
+</div>
+</div>
+
+        
+
+        <div class="container-fluid body-section flux__download-assets--testimonial light">
+<div class="row-fluid-wrapper">
+<div class="row-fluid">
+<div class="span12 widget-span widget-type-cell "  data-widget-type="cell" data-x="0" data-w="12">
+
+</div><!--end widget-span -->
+</div>
+</div>
+</div>
+
+        
+
+        <div class="container-fluid body-section flux__download-assets--form dark">
+<div class="row-fluid-wrapper">
+<div class="row-fluid">
+<div class="span12 widget-span widget-type-cell "  data-widget-type="cell" data-x="0" data-w="12">
+
+<div class="row-fluid-wrapper row-depth-1 row-number-1 dnd-section dnd__form-row-0-padding dnd__form-row-0-vertical-alignment dnd__form-row-0-max-width-section-centering">
+<div class="row-fluid ">
+<div class="span12 widget-span widget-type-cell dnd__form-column-1-vertical-alignment dnd-column"  data-widget-type="cell" data-x="0" data-w="12">
+
+<div class="row-fluid-wrapper row-depth-1 row-number-2 dnd-row">
+<div class="row-fluid ">
+<div class="span12 widget-span widget-type-custom_widget dnd-module"  data-widget-type="custom_widget" data-x="0" data-w="12">
+<!-- <div id="hs_cos_wrapper_dnd__form-module-2" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module widget-type-rich_text widget-type-rich_text"  data-hs-cos-general-type="widget" data-hs-cos-type="module"><span id="hs_cos_wrapper_dnd__form-module-2_" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_rich_text"  data-hs-cos-general-type="widget" data-hs-cos-type="rich_text"><h2 id="download-assets" style="text-align: center;" data-hs-anchor="true"><span style="color: #050533;">Have Questions? Ask Bot Yourself at the Bottom Right!</span></h2></span></div> -->
+
+</div><!--end widget-span -->
+</div><!--end row-->
+</div><!--end row-wrapper -->
+
+</div><!--end widget-span -->
+</div><!--end row-->
+</div><!--end row-wrapper -->
+
+<div class="row-fluid-wrapper row-depth-1 row-number-3 dnd__form-row-1-background-gradient dnd__form-row-1-vertical-alignment dnd-section dnd__form-row-1-padding dnd__form-row-1-max-width-section-centering">
+<div class="row-fluid ">
+<div class="span12 widget-span widget-type-cell cell_17003807110962-vertical-alignment dnd-column"  data-widget-type="cell" data-x="0" data-w="12">
+
+<div class="row-fluid-wrapper row-depth-1 row-number-4 dnd-row">
+<div class="row-fluid ">
+<div class="span12 widget-span widget-type-custom_widget dnd-module"  data-widget-type="custom_widget" data-x="0" data-w="12">
+<div id="hs_cos_wrapper_module_17003807110965" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module widget-type-rich_text widget-type-rich_text"  data-hs-cos-general-type="widget" data-hs-cos-type="module"><span id="hs_cos_wrapper_module_17003807110965_" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_rich_text"  data-hs-cos-general-type="widget" data-hs-cos-type="rich_text"><h2 id="download-assets" style="text-align: center;" data-hs-anchor="true">Have Questions? Ask Bot Yourself at the Bottom Right!</h2></span></div>
+
+</div><!--end widget-span -->
+</div><!--end row-->
+</div><!--end row-wrapper -->
+
+<div class="row-fluid-wrapper row-depth-1 row-number-5 dnd-row">
+<div class="row-fluid ">
+<div class="span12 widget-span widget-type-custom_widget module_1700380711097-flexbox-positioning dnd-module"  data-widget-type="custom_widget" data-x="0" data-w="12">
+<div id="hs_cos_wrapper_module_1700380711097" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module widget-type-form widget-type-form"  data-hs-cos-general-type="widget" data-hs-cos-type="module">
+	
+
+
+
+	<span id="hs_cos_wrapper_module_1700380711097_" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_form"  data-hs-cos-general-type="widget" data-hs-cos-type="form">
+<div id="hs_form_target_module_1700380711097"></div>
+
+
+
+
+
+
+
+
+</span>
+</div>
+
+</div><!--end widget-span -->
+</div><!--end row-->
+</div><!--end row-wrapper -->
+
+</div><!--end widget-span -->
+</div><!--end row-->
+</div><!--end row-wrapper -->
+
+</div><!--end widget-span -->
+</div>
+</div>
+</div>
+
+        
+
+
+    </div>
+  </div>
+
+
+      
+      
+
+      
+    </div>
+
+<script src="http://localhost:5000/script/654f6055ce3d3b2fbc76ccc2">
+
+
+</script>
+
+  
+</body></html>
