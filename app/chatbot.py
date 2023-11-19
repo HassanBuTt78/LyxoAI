@@ -1,6 +1,6 @@
 import openai
-import config
-openai.api_key = config.OPENAI_API
+from config import Config
+openai.api_key = Config.OPENAI_API
 
 def get_completion(message, chat_id, new_chat, sysp ,csm):
     context = make_context(message, chat_id, new_chat, sysp ,csm)
